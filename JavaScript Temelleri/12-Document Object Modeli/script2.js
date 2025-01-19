@@ -23,9 +23,9 @@
 
 //*document.querySelector()
 
-// console.log(document.querySelector("#header"));
-// console.log(document.querySelector(".card-header"));//. başına koyulan nokta ile bulduğu ilk elemanı seçer.
-// console.log(document.querySelector("div"));//ilk "div"i getirir.
+// console.log(document.querySelector("#header")); // # ile id seçer. İndex belirtilmediği müddetçe ilk bulduğunu getirir.
+// console.log(document.querySelector(".card-header"));// . ile class seçer.
+// console.log(document.querySelector("div"));// Başında her ikiside yoksa direkt ilgili etiketi getirir. ilk "div"i getirir.
 
 // document.querySelector("li").style.color="red";//Bulduğu ilk "li" elemanını red yaptı.
 // document.querySelector("li:last-child").style.color="blue";//son "li" elemanını mavi yapar.
