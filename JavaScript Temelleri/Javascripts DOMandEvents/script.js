@@ -4,6 +4,10 @@ const form = document.querySelector("form");
 const input = document.querySelector("#txtTaskName");
 const btnDeleteAll = document.querySelector("#btnDeleteAll");
 const taskList = document.querySelector("#task-list");// # ile id bulma . ile class bulma yapılır
+const items = ["item 1", "item 2", "item 3"];
+
+//load items
+loadItems();
 
 //call event listeners
 eventListeners();
@@ -19,17 +23,18 @@ function eventListeners() {
     btnDeleteAll.addEventListener("click", deleteAllItems);
 }
 
-//add new item function
-function addNewItem(e) {
+function loadItems(){
+    items.forEach(function(item){
+        createItems(item);
+    });
+}
 
-    console.log(input.value);
-    if (input.value === "") {
-        alert("add new item");
-    }
+//create items
+function createItems(text){
     //create li
     const li = document.createElement("li");
     li.className = "list-group-item list-group-item-secondary";
-    li.appendChild(document.createTextNode(input.value));
+    li.appendChild(document.createTextNode(text));
     //create a
     const a = document.createElement("a");
     a.classList = "delete-item float-right";
@@ -41,9 +46,21 @@ function addNewItem(e) {
 
     //add li to ul
     taskList.appendChild(li);
+    
+}
+
+//add new item function
+function addNewItem(e) {
+
+    console.log(input.value);
+    if (input.value === "") {
+        alert("add new item");
+    }
+    //create item
+    createItems(input.value);
 
     //clear input
-    input.value = "";
+    text = "";
     e.preventDefault();
 }
 
@@ -61,6 +78,7 @@ function deleteAllItems(e) {
         //taskList.innerHTML="";
 
         taskList.childNodes.forEach(function (item) {
+            //console.log(item);
             if (item.nodeType === 1) {
                 item.remove();
             }
